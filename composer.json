@@ -1,0 +1,21 @@
+{
+  "name": "piotrek-r/date-time-master",
+  "description": "DateTime(Immutable) extension",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Piotr Rybałtowski",
+      "email": "piotrek@owl-labs.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "^5.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "DateTimeMaster\\": "src/"
+    }
+  }
+}
