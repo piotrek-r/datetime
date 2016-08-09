@@ -1,5 +1,5 @@
 {
-  "name": "piotrek-r/date-time-master",
+  "name": "piotrek-r/datetime",
   "description": "DateTime(Immutable) extension",
   "type": "library",
   "license": "MIT",
@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "DateTimeMaster\\": "src/"
+      "PiotrekR\\DateTime\\": "src/"
     }
   }
 }
