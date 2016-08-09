@@ -1,0 +1,35 @@
+{
+  "name": "piotrek-r/datetime",
+  "description": "DateTime(Immutable) extension",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Piotr Rybałtowski",
+      "email": "piotrek@owl-labs.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "^5.5",
+    "squizlabs/php_codesniffer": "^2.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "PiotrekR\\DateTime\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AppTest\\": "test/AppTest/"
+    }
+  },
+  "scripts": {
+    "check": [
+      "@cs",
+      "@test"
+    ],
+    "cs": "phpcs",
+    "test": "phpunit"
+  }
+}
