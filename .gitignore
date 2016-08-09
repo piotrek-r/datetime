@@ -1,5 +1,6 @@
 ### Application
 /phpunit.xml
+/tmp
 
 ### Linux template
 *~
