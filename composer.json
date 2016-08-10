@@ -21,7 +21,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "AppTest\\": "test/AppTest/"
+      "PiotrekR\\DateTimeTest\\": "test/"
     }
   },
   "scripts": {
