@@ -49,12 +49,12 @@ class DateTime extends \DateTimeImmutable
     {
         $diff = $this->dow() - $firstDay;
 
-        /** @var bool|\DateTimeImmutable|DateTime $date */
-        $date = $this->sub(new DateInterval(sprintf('P%dD', ($diff >= 0 ? 0 : 7) + $diff)));
-
-        if (!$date) {
-            return $date;
+        if ($diff < 0) {
+            $diff += 7;
         }
+
+        /** @var bool|\DateTimeImmutable|DateTime $date */
+        $date = $this->sub(new DateInterval(sprintf('P%dD', $diff)));
 
         if ($startOfDay) {
             $date = $date->startOfDay();
@@ -70,14 +70,14 @@ class DateTime extends \DateTimeImmutable
      */
     public function endOfWeek($endOfDay = true, $lastDay = self::DOW_SUNDAY)
     {
-        $diff = ($lastDay - $this->dow()) % 7;
+        $diff = $lastDay - $this->dow();
+
+        if ($diff < 0) {
+            $diff += 7;
+        }
 
         /** @var bool|\DateTimeImmutable|DateTime $date */
         $date = $this->add(new DateInterval(sprintf('P%dD', $diff)));
-
-        if (!$date) {
-            return $date;
-        }
 
         if ($endOfDay) {
             $date = $date->endOfDay();
@@ -139,7 +139,7 @@ class DateTime extends \DateTimeImmutable
         } else {
             $date = $this;
         }
-        return $this->setDate($date->format('Y'), 12, 31);
+        return $date->setDate($date->format('Y'), 12, 31);
     }
 
     /**
@@ -163,7 +163,7 @@ class DateTime extends \DateTimeImmutable
      */
     public function dow()
     {
-        return (int)$this->format('w');
+        return (int)$this->format('N');
     }
 
     /**
