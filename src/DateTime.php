@@ -17,6 +17,15 @@ class DateTime extends \DateTimeImmutable
     const DOW_SUNDAY = 7;
 
     /**
+     * @param \DateTimeInterface $dateTime
+     * @return DateTime
+     */
+    public static function createFromDateTime(\DateTimeInterface $dateTime)
+    {
+        return (new self($dateTime->format('c')));
+    }
+
+    /**
      * @return DateTime
      */
     public static function now()
