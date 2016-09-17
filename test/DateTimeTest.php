@@ -21,8 +21,14 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
         ];
 
         foreach ($times as $time) {
-            self::assertEquals($time, (DateTime::createFromDateTime(new \DateTime($time))->format('Y-m-d H:i:s')));
-            self::assertEquals($time, (DateTime::createFromDateTime(new \DateTimeImmutable($time))->format('Y-m-d H:i:s')));
+            self::assertEquals(
+                $time,
+                (DateTime::createFromDateTime(new \DateTime($time))->format('Y-m-d H:i:s'))
+            );
+            self::assertEquals(
+                $time,
+                (DateTime::createFromDateTime(new \DateTimeImmutable($time))->format('Y-m-d H:i:s'))
+            );
         }
     }
 
