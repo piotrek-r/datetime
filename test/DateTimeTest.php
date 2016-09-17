@@ -10,6 +10,22 @@ use PiotrekR\DateTime\DateTime;
  */
 class DateTimeTest extends \PHPUnit_Framework_TestCase
 {
+    public function testCreateFromDateTime()
+    {
+        $times = [
+            '2016-01-01 00:00:00',
+            '2016-02-29 00:00:00',
+            '2016-03-01 00:00:00',
+            '2016-09-03 00:00:00',
+            '2016-12-31 00:00:00',
+        ];
+
+        foreach ($times as $time) {
+            self::assertEquals($time, (DateTime::createFromDateTime(new \DateTime($time))->format('Y-m-d H:i:s')));
+            self::assertEquals($time, (DateTime::createFromDateTime(new \DateTimeImmutable($time))->format('Y-m-d H:i:s')));
+        }
+    }
+
     public function testNowFactory()
     {
         self::assertInstanceOf(DateTime::class, DateTime::now());
