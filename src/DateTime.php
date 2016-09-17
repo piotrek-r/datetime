@@ -190,4 +190,35 @@ class DateTime extends \DateTimeImmutable
     {
         return in_array($this->dow(), [self::DOW_SATURDAY, self::DOW_SUNDAY]);
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function toDateTime()
+    {
+        return new \DateTime($this->format('c'));
+    }
+
+    /**
+     * @return \DateTimeImmutable
+     */
+    public function toDateTimeImmutable()
+    {
+        return new \DateTimeImmutable($this->format('c'));
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return [
+            'y' => (int)$this->format('Y'),
+            'm' => (int)$this->format('n'),
+            'd' => (int)$this->format('j'),
+            'h' => (int)$this->format('G'),
+            'i' => (int)$this->format('i'),
+            's' => (int)$this->format('s'),
+        ];
+    }
 }
